@@ -82,22 +82,16 @@
     document.addEventListener('DOMContentLoaded', () => {
         const galleryGrid = document.querySelector('.GalleryGrid');
 
-        // Fetch all images from the Gallery folder
-        fetch('src/assets/imgs/Gallery/')
-            .then(response => response.text())
-            .then(html => {
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(html, 'text/html');
-                const imageLinks = Array.from(doc.querySelectorAll('a')).filter(link => link.href.match(/\.(jpg|jpeg|png|gif)$/i));
+        // Manually list all image filenames
+        const images = Array.from({ length: 34 }, (_, i) => `${i + 1}.jpg`);
 
-                imageLinks.forEach(link => {
-                    const img = document.createElement('img');
-                    img.src = `/src/assets/imgs/Gallery/${link.textContent}`;
-                    img.alt = `Gallery Image`;
-                    galleryGrid.appendChild(img);
-                });
-            })
-            .catch(error => console.error('Error loading gallery images:', error));
+        // Dynamically create and append image elements
+        images.forEach(image => {
+            const img = document.createElement('img');
+            img.src = `src/assets/imgs/Gallery/${image}`;
+            img.alt = `Gallery Image ${image}`;
+            galleryGrid.appendChild(img);
+        });
     });
 </script>
 </html>
