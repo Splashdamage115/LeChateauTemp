@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="David Strikaitis">
+    <title>Weddings - Le Chateau de Croquelardit</title>
+    <link href="src/assets/css/style.css" rel="stylesheet" text="text/css">
+    <link rel="icon" href="src/assets/imgs/icon.png">
+</head>
+<body>
+    <!-- Banner -->
+    <div class="Banner">
+        <div class="BannerContainer">
+            <a href="index.html"><img src="./src/assets/imgs/leChateauLogo.svg" alt="Le Chateau Logo" id="BannerLogo"></a>
+            <div class="BannerTagline" data-key="tagline">
+                <p>Book Your Stay Today</p>
+            </div>
+        </div>
+    </div>
+    <!-- Hamburger Menu -->
+    <div class="HamburgerMenu">
+        <input type="checkbox" id="menuToggle">
+        <label for="menuToggle" class="menuIcon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <div class="menuContent">
+            <button class="closeButton">X</button>
+            <a href="index.html" data-key="home">Home</a>
+            <a href="contact.html" data-key="contact">Contact</a>
+            <a href="weddings.html" data-key="weddings">Weddings</a>
+            <a href="rooms.html" data-key="rooms">Rooms</a>
+            <a href="attractions.html" data-key="attractions">Attractions</a>
+            <a href="gallery.html" data-key="gallery">Gallery</a>
+            <div class="LanguageToggle">
+                <button id="lang-en" class="lang-button">en</button>
+                <button id="lang-fr" class="lang-button">fr</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="HeroSection">
+        <img src="src/assets/imgs/weddings1.jpg" alt="Wedding at Le Chateau" class="HeroImage">
+        <div class="HeroText">
+            <h1>Celebrate Your Special Day at Le Chateau de Croquelardit</h1>
+        </div>
+    </div>
+
+    <!-- Venue Highlights -->
+    <section class="VenueHighlights">
+        <div class="SectionContent">
+            <img src="src/assets/imgs/weddings2.jpg" alt="Wedding Venue" class="SectionImage">
+            <div class="SectionText">
+                <h2>Elegant Wedding Venue</h2>
+                <p>Our venue offers stunning halls and picturesque gardens, perfect for your dream wedding.</p>
+                <a href="gallery.html" class="modern-button">View Gallery</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Offered -->
+    <section class="ServicesOffered">
+        <div class="SectionContent">
+            <div class="SectionText">
+                <h2>Comprehensive Wedding Services</h2>
+                <p>From catering to decoration, we provide everything you need to make your day unforgettable.</p>
+                <a href="suppliers.html" class="modern-button">Our Suppliers</a>
+            </div>
+            <img src="src/assets/imgs/weddings3.png" alt="Wedding Services" class="SectionImage">
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="CallToAction">
+        <h2>Ready to Plan Your Wedding?</h2>
+        <p>Contact us today to start planning your dream wedding at Le Chateau.</p>
+        <a href="contact.html" class="button">Contact Us</a>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="Footer">
+        <div class="FooterContainer">
+            <div class="FooterInfo">
+                <a href="tel:+33684473433" class="FooterLink" data-key="footer.phone">
+                    <img src="src/assets/imgs/phone-icon.svg" alt="Phone Icon" class="FooterIcon"> Phone: +33 6 844734 33
+                </a>
+                <a href="mailto:chateaudecroquelardit@gmail.com" class="FooterLink" data-key="footer.email">
+                    <img src="src/assets/imgs/email-icon.svg" alt="Email Icon" class="FooterIcon"> Email: chateaudecroquelardit@gmail.com
+                </a>
+                <a href="https://www.instagram.com/chateaudecroquelardit/" target="_blank" class="FooterLink" data-key="footer.instagram">
+                    <img src="src/assets/imgs/instagram-icon.svg" alt="Instagram Icon" class="FooterIcon"> Instagram
+                </a>
+            </div>
+            <div class="FooterLinks">
+                <a href="index.html" class="FooterLink" data-key="home">Home</a>
+                <a href="contact.html" class="FooterLink" data-key="contact">Contact</a>
+                <a href="weddings.html" class="FooterLink" data-key="weddings">Weddings</a>
+                <a href="rooms.html" class="FooterLink" data-key="rooms">Rooms</a>
+                <a href="attractions.html" class="FooterLink" data-key="attractions">Attractions</a>
+            </div>
+        </div>
+        <div class="FooterBottom">
+            <p data-key="footer.rights">&copy; 2023 Le Chateau. All rights reserved.</p>
+            <p data-key="footer.address">207 Rte de Toulouse, 47270 Saint-Jean-de-Thurac</p>
+        </div>
+    </footer>
+</body>
+<script src="src/assets/js/script.js"></script>
+</html>

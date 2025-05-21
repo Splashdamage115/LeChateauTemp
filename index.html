@@ -1,75 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="LeChateau - A luxurious chateau hotel offering exquisite weddings, events, and room rentals.
-                                Experience elegance and sophistication in a stunning setting.">
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-<link rel="stylesheet" href="src/css/style.css">
-<title>LeChateau</title>
-</head>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        
+        <meta name="author" content="David Strikaitis">
+        <title>Le Chateau de Croquelardit</title>
+        <link href="src/assets/css/style.css" rel="stylesheet" text="text/css">
 
-<body>
-    <!-- Temporary Header -->
-    <div id="headerContent" class="headerContent">
-        <img src=".\src\imgs\leChateauLogo.svg" alt="Le Chateau Logo icon" class="LogoImage">
-    </div>
-    <!-- Header -->
-    <!--
-    <div id="headerContent" class="headerContent">
-        <div class="box alignLeft">
+        <link rel="icon" href="src/assets/imgs/icon.png">
+    </head>
 
-            <h1>
-                LeCheatau
-            </h1>
-        </div>
-        <div class="gap"></div>
-        <div class="box alignRight">
-        <nav>
-            <div class="menu-icon" id="menu-icon"> ☰ </div>
-            <ul class="nav-links" id="nav-links">
-                <li>
-                    <a href="index.html">Home</a></li> 
-            </ul>
-        </nav>
-    </div>
-    </div>
-    -->
-    <div class="mainContent">
-        <br><br><br>
-        <p class="constructionText">Our full website is under construction.<br>Please check back later for updates!<br><br>Contact Us:<br></p>
-
-            <div class="contactsContainer">
-                <a href="mailto:chateaudecroquelardit@gmail.com" class="contactsLink">
-                    <div class="contactsItem">
-                        <img src=".\src\imgs\email-icon.svg" class="iconImg" alt="Email icon">
-                        <h1 class="contactsHeader">Mail</h1>
-                        <p class="contactsText">chateaudecroquelardit@gmail.com</p>
-                    </div>
-                </a>
-                <a href="https://www.instagram.com/chateaudecroquelardit/" class="contactsLink">
-                    <div class="contactsItem">
-                        <img src=".\src\imgs\instagram-icon.svg" class="iconImg" alt="Instagram icon">
-                        <h1 class="contactsHeader">Instagram</h1>
-                        <p class="contactsText">@chateaudecroquelardit</p>
-                    </div>
-                </a>
-                <a href="tel:00330684473433" class="contactsLink">
-                    <div class="contactsItem">
-                            <img src=".\src\imgs\phone-icon.svg" class="iconImg" alt="Phone icon">
-                            <h1 class="contactsHeader">Phone</h1>
-                            <p class="contactsText">+33 6 84 47 34 33</p>
-                    </div>
-                </a>
+        <!-- Banner -->
+        <div class="Banner">
+            <div class="BannerContainer">
+                <a href="index.html"><img src="./src/assets/imgs/leChateauLogo.svg" alt="Le Chateau Logo" id="BannerLogo"></a>
+                <div class="BannerTagline" data-key="tagline">
+                    <p>Book Your Stay Today</p>
+                </div>
             </div>
+        </div>
+        <div class="HamburgerMenu">
+            <input type="checkbox" id="menuToggle">
+            <label for="menuToggle" class="menuIcon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <div class="menuContent">
+                <button class="closeButton">X</button>
+                <a href="contact.html" data-key="contact">Contact</a>
+                <a href="weddings.html" data-key="weddings">Weddings</a>
+                <a href="rooms.html" data-key="rooms">Rooms</a>
+                <a href="attractions.html" data-key="attractions">Attractions</a>
+                <a href="gallery.html" data-key="gallery">Gallery</a>
+                <div class="LanguageToggle">
+                    <button id="lang-en" class="lang-button">en</button>
+                    <button id="lang-fr" class="lang-button">fr</button>
+                </div>
+            </div>
+        </div>
+        <!-- Body -->
+         <!-- slideshow -->
+        <div class="Slideshow">
+            <img src="src/assets/imgs/Slide1.jpg" alt="Slide 1" class="active">
+            <img src="src/assets/imgs/Slide2.jpg" alt="Slide 2">
+            <img src="src/assets/imgs/Slide3.jpg" alt="Slide 3">
+            <div class="overlay" data-key="welcome">
+                <h2>Welcome to Le Chateau de Croquelardit</h2>
+            </div>
+        </div>
+
+        <!-- Historic Venue Section -->
+        <section class="HistoricVenue">
+            <div class="HistoricContent">
+                <img src="src/assets/imgs/img1.jpg" alt="Historic Venue" class="HistoricImage">
+                <div class="HistoricText">
+                    <h2>Get married at Le Chateau de Croquelardit</h2>
+                    <p>Travel to the historic Le Chateau Nightclub and casino for your dream day!</p>
+                    <a href="weddings.html" class="button">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Parallax Banner Section -->
+        <section class="ParallaxBanner">
+            <div class="ParallaxOverlay">
+                <h2>Experience the Elegance of Le Chateau de Croquelardit</h2>
+            </div>
+        </section>
+
+        <!-- Rooms Section -->
+        <section class="Rooms">
+            <div class="RoomsContent">
+                <div class="RoomsText">
+                    <h2>Stay at Le Chateau de Croquelardit</h2>
+                    <p>Enjoy luxurious rooms with a touch of historic charm at Le Chateau de Croquelardit.</p>
+                    <a href="rooms.html" class="button">Explore Rooms</a>
+                </div>
+                <img src="src/assets/imgs/img3.jpg" alt="Rooms at Le Chateau de Croquelardit" class="RoomsImage">
+            </div>
+        </section>
+    </body>
+<!-- Include js-yaml library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+<script src="src/assets/js/script.js"></script>
+
+<!-- Footer Section -->
+<footer class="Footer">
+    <div class="FooterContainer">
+        <div class="FooterInfo">
+            <a href="tel:+33684473433" class="FooterLink" data-key="footer.phone">
+                <img src="src/assets/imgs/phone-icon.svg" alt="Phone Icon" class="FooterIcon"> Phone: +33 6 844734 33
+            </a>
+            <a href="mailto:chateaudecroquelardit@gmail.com" class="FooterLink" data-key="footer.email">
+                <img src="src/assets/imgs/email-icon.svg" alt="Email Icon" class="FooterIcon"> Email: chateaudecroquelardit@gmail.com
+            </a>
+            <a href="https://www.instagram.com/chateaudecroquelardit/" target="_blank" class="FooterLink" data-key="footer.instagram">
+                <img src="src/assets/imgs/instagram-icon.svg" alt="Instagram Icon" class="FooterIcon"> Instagram
+            </a>
+        </div>
+        <div class="FooterLinks">
+            <a href="index.html" class="FooterLink" data-key="home">Home</a>
+            <a href="contact.html" class="FooterLink" data-key="contact">Contact</a>
+            <a href="weddings.html" class="FooterLink" data-key="weddings">Weddings</a>
+            <a href="rooms.html" class="FooterLink" data-key="rooms">Rooms</a>
+            <a href="attractions.html" class="FooterLink" data-key="attractions">Attractions</a>
+        </div>
     </div>
-    <!-- Footer -->
-    <div id="footerContent">
-        <footer>
-            
-        </footer>
+    <div class="FooterBottom">
+        <p data-key="footer.rights">&copy; 2023 Le Chateau de Croquelardit. All rights reserved.</p>
+        <p data-key="footer.address">207 Rte de Toulouse, 47270 Saint-Jean-de-Thurac</p>
     </div>
-</body>
-<script src="src/js/script.js"></script>
+</footer>
 </html>

@@ -1,0 +1,918 @@
+body {
+    background-color: #F5F5DC; /* Light beige background */
+    color: #333; /* Darker text for contrast */
+    overflow-x: hidden;
+    padding-top: 100px; /* Adjust based on the banner's height */
+}
+
+/*-- Banner --*/
+
+#BannerLogo {
+    width: 80%;
+    max-width: 200px;
+}
+
+.Banner {
+    width: 100%;
+    background-color: #FFF8DC; /* Lighter beige (cornsilk) for banner */
+    border-bottom: 1px solid #E0E0E0; /* Subtle border */
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: fixed;
+    top: 0;
+    transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    z-index: 999;
+}
+
+.Banner.shrink {
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.Banner.shrink #BannerLogo {
+    display: none;
+}
+
+.BannerContainer a {
+    width: 100%;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Adjust styles for the tagline to ensure visibility */
+.BannerTagline {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Adjust for perfect centering */
+    font-size: 24px; /* Slightly smaller font size */
+    font-weight: bold;
+    color: #555; /* Softer text color */
+    background: rgba(255, 255, 255, 0.9); /* Light background for tagline */
+    padding: 10px 20px; /* Adjust padding */
+    border-radius: 8px; /* Slightly rounder corners */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    z-index: 10; /* Ensure it appears above other elements */
+}
+
+/*-- Mobile size controller --*/
+@media (max-width: 768px) {
+    .BannerContainer a {
+        width: 100%;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/*-- Hamburger Menu --*/
+.HamburgerMenu {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2000; /* Higher than other elements */
+    background-color: #FFFACD; /* Lemon chiffon for hamburger menu */
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.HamburgerMenu .menuIcon {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.HamburgerMenu .menuIcon span {
+    background-color: #FFD700; /* Gold color for hamburger menu lines */
+    height: 4px;
+    width: 30px;
+    border-radius: 2px;
+}
+
+.HamburgerMenu .menuIcon {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.HamburgerMenu .menuIcon span {
+    background-color: #FFD700; /* Gold color for hamburger menu lines */
+    height: 4px;
+    width: 30px;
+    margin: 5px 0;
+    transition: none;
+}
+
+/* Ensure hamburger menu hover lines do not turn white */
+.HamburgerMenu .menuIcon:hover span {
+    background-color: #FFC107; /* Slightly lighter gold, consistent with X button hover */
+}
+
+.HamburgerMenu input[type="checkbox"] {
+    display: none;
+}
+
+.HamburgerMenu input[type="checkbox"]:checked ~ .menuContent {
+    transform: translateX(0);
+}
+
+/* Ensure hamburger menu disappears when left menu flies in */
+.HamburgerMenu input[type="checkbox"]:checked ~ .menuIcon {
+    display: none;
+}
+
+.HamburgerMenu .menuContent {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #FFFFFF; /* White menu content */
+    color: #333; /* Darker text */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle drop shadow */
+}
+
+/* Updated highlighting for hamburger menu buttons */
+.HamburgerMenu .menuContent a {
+    position: relative;
+    overflow: hidden;
+    color: #FFD700; /* Gold text for links */
+    text-decoration: none;
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.HamburgerMenu .menuContent a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #FFD700; /* Gold underline for links */
+    transition: width 0.3s ease-in-out;
+}
+
+.HamburgerMenu .menuContent a:hover::after {
+    width: 100%;
+}
+
+.HamburgerMenu .menuContent a:hover {
+    background-color: #FFF8DC; /* Match banner color for highlight */
+    color: #FFD700; /* Keep text gold on hover */
+}
+
+/* Reverted close button position to its previous state */
+.HamburgerMenu .menuContent .closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #FFD700; /* Gold color for X button */
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.HamburgerMenu .menuContent .closeButton:hover {
+    color: #FFC107; /* Slightly lighter gold on hover */
+}
+
+.HamburgerMenu::before {
+    content: none;
+}
+
+/* Add styles for the slideshow */
+.Slideshow {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    margin-top: 100px; /* Push below the banner */
+    background-color: #FFFFFF; /* White background for slideshow */
+}
+
+.Slideshow img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.Slideshow img.active {
+    opacity: 1;
+}
+
+.Slideshow .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8); /* Light overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333; /* Darker text */
+    text-align: center;
+    font-size: 24px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+    .BannerTagline {
+        display: block;
+    }
+    .Slideshow {
+        width: 80%;
+        margin: 0 auto; /* Center the slideshow */
+        height: 500px; /* Increase height for PC */
+    }
+}
+
+@media (max-width: 1023px) {
+    .BannerTagline {
+        display: none;
+    }
+}
+
+/* Add styling for French/English buttons */
+.LanguageToggle {
+    display: flex;
+    gap: 10px; /* Add spacing between buttons */
+}
+
+.LanguageToggle .lang-button {
+    background: transparent;
+    border: none;
+    color: #333; /* Darker text for visibility */
+    font-size: 14px;
+    cursor: pointer;
+    padding: 5px;
+    text-decoration: none;
+    transition: text-decoration 0.3s ease;
+}
+
+.LanguageToggle .lang-button img.flag-icon {
+    width: 20px;
+    height: 15px;
+}
+
+.LanguageToggle .lang-button:hover {
+    text-decoration: underline;
+    color: #FFC107; /* Slightly lighter gold on hover */
+}
+
+.LanguageToggle .lang-button.selected {
+    text-decoration: underline;
+    font-weight: bold;
+    color: #FFD700; /* Gold for selected button */
+}
+
+/* Add hover underline styling for translation buttons */
+.LanguageToggle .lang-button:hover {
+    text-decoration: underline;
+}
+
+/* Contact Page Styling */
+.ContactPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('../imgs/bride.jpg') no-repeat center center/cover; /* Large background image */
+    position: relative;
+}
+
+.ContactPage::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 215, 0, 0.5); /* Gold overlay */
+    z-index: 1;
+}
+
+/* Make the contact card background less transparent */
+.ContactCard {
+    background: rgba(255, 255, 255, 0.95); /* Slightly less transparent white */
+    padding: 20px;
+    border-radius: 10px;
+    color: #333; /* Darker text */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    z-index: 2; /* Ensure card is above the overlay */
+}
+
+.ContactCard h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.ContactCard ul {
+    list-style: none;
+    padding: 0;
+}
+
+.ContactCard ul li {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.ContactCard ul li img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    border: none; /* Remove border */
+    background-color: transparent; /* Remove background */
+    padding: 0; /* Remove padding */
+}
+
+/* Adjust the gold color for better readability */
+.ContactCard a {
+    color: #FFC85A; /* Slightly darker gold for better contrast */
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+}
+
+.ContactCard a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #FFC85A; /* Match underline color to the adjusted gold */
+    transition: width 0.3s ease-in-out;
+}
+
+.ContactCard a:hover::after {
+    width: 100%; /* Fill underline from left to right */
+}
+
+.ContactCard a:hover {
+    color: #FFB347; /* Slightly darker hover color for better visibility */
+}
+
+/* Style the phone and address links to match the email link */
+.ContactCard a {
+    color: #FFC85A; /* Slightly darker gold for better contrast */
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+}
+
+.ContactCard a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #FFC85A; /* Match underline color to the adjusted gold */
+    transition: width 0.3s ease-in-out;
+}
+
+.ContactCard a:hover::after {
+    width: 100%; /* Fill underline from left to right */
+}
+
+.ContactCard a:hover {
+    color: #FFB347; /* Slightly darker hover color for better visibility */
+}
+
+/* Footer Styling */
+.Footer {
+    width: 100%; /* Full width */
+    background-color: #FFF8DC; /* Light beige background */
+    color: #333; /* Darker text for contrast */
+    padding: 20px;
+    border-top-left-radius: 15px; /* Rounded corners */
+    border-top-right-radius: 15px; /* Rounded corners */
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Drop shadow at the top */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding-top: 30px; /* Increase top padding for more white space */
+}
+
+.FooterContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+/* Adjust footer links to stack vertically */
+.FooterLinks {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px; /* Add spacing between links */
+}
+
+.FooterLinks a {
+    color: #DAA520; /* Gold color */
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Add white space to the right of footer links for better legibility */
+.FooterLinks a {
+    margin-right: 20px; /* Add extra space to the right */
+}
+
+.FooterLinks a:hover {
+    color: #B8860B; /* Darker gold on hover */
+    text-decoration: underline;
+}
+
+.FooterInfo {
+    text-align: left;
+    order: -1; /* Ensure other info stays above */
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Add space between elements */
+}
+
+.FooterInfo p {
+    margin: 5px 0;
+    font-size: 14px; /* Smaller font size */
+}
+
+.FooterBottom {
+    text-align: center;
+    font-size: 12px; /* Smallest font size */
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Add spacing between address and rights text */
+}
+
+/* Footer link styling */
+.FooterLink {
+    color: #DAA520; /* Gold color */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.FooterLink:hover {
+    color: #B8860B; /* Darker gold on hover */
+}
+
+.FooterIcon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Updated Under Construction Banner Styling with Overlay */
+.UnderConstructionBanner {
+    background: rgba(255, 255, 255, 0.95); /* White background for text */
+    padding: 40px;
+    border-radius: 15px;
+    color: #333; /* Darker text */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+    text-align: center;
+    max-width: 600px;
+    margin: auto; /* Center the banner vertically */
+    position: relative;
+    z-index: 2; /* Ensure it appears above the background image */
+}
+
+/* Adjust RoomsPage to ensure footer stays at the bottom */
+.RoomsPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh; /* Ensure the page takes up the full viewport height */
+    background: url('../imgs/Slide1.jpg') no-repeat center center/cover; /* Large background image */
+}
+
+/* Hero Section Styling */
+.HeroSection {
+    position: relative;
+    text-align: center;
+    color: white;
+    overflow: hidden; /* Ensure content stays within bounds */
+}
+.HeroImage {
+    width: 100%;
+    height: auto;
+    filter: brightness(70%);
+}
+.HeroText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    max-width: 90%; /* Ensure text does not exceed image bounds */
+    word-wrap: break-word;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .HeroText {
+        font-size: 1.5rem; /* Reduce font size for mobile */
+        padding: 10px; /* Add padding to prevent overflow */
+    }
+}
+
+/* Section Styling */
+.SectionContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 50px 0;
+    gap: 20px;
+}
+.SectionImage {
+    width: 45%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.SectionText {
+    width: 50%;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Call to Action Styling */
+.CallToAction {
+    text-align: center;
+    background-color: #FFF8DC;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin: 50px auto;
+    max-width: 800px;
+}
+.CallToAction h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+.CallToAction p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+.CallToAction .button {
+    background-color: #FFD700;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.CallToAction .button:hover {
+    background-color: #FFC107;
+}
+
+/* Fly-in Animations */
+@keyframes flyInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes flyInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.SectionContent:nth-child(odd) {
+    animation: flyInLeft 1s ease-in-out;
+}
+
+.SectionContent:nth-child(even) {
+    animation: flyInRight 1s ease-in-out;
+}
+
+/* Center the gallery heading */
+.BodyContent h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Add spacing between the gallery heading and the banner */
+.BodyContent {
+    margin-top: 50px; /* Push the heading lower */
+}
+
+/* Add a gap between the heading and the first picture */
+.GalleryGrid {
+    margin-top: 20px; /* Add space below the heading */
+}
+
+/* Gallery Grid Styling */
+.GalleryGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two images per row */
+    gap: 20px; /* Add spacing between images */
+    justify-items: center; /* Center images horizontally */
+    margin: 20px auto; /* Center the grid and add spacing */
+    max-width: 800px; /* Limit the width of the gallery */
+    padding: 0 10px; /* Add padding to the left and right */
+}
+
+.GalleryGrid img {
+    width: 100%; /* Make images responsive */
+    max-width: 350px; /* Set a consistent maximum size */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+
+/* Styling for the 'View Gallery' button */
+.modern-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333; /* Dark text for readability */
+    background-color: #FFD700; /* Gold color */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modern-button:hover {
+    background-color: #FFC107; /* Slightly lighter gold */
+    transform: scale(1.05);
+}
+
+.modern-button:active {
+    background-color: #B8860B; /* Darker gold */
+    transform: scale(0.95);
+}
+
+/* Styling for Supplier Cards */
+.SupplierCard {
+    display: flex;
+    align-items: center;
+    background-color: #FFF8DC; /* Light beige background */
+    border: 1px solid #E0E0E0; /* Subtle border */
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.SupplierLogo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.SupplierInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.SupplierInfo h2 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #333; /* Darker text */
+}
+
+.SupplierInfo p {
+    font-size: 1rem;
+    margin: 5px 0 0;
+    color: #555; /* Softer text color */
+}
+
+/* Center the description text on the suppliers page */
+.SuppliersSection p {
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 20px auto;
+    color: #555; /* Softer text color */
+}
+
+/* Center the title on the suppliers page */
+.SuppliersSection h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin: 20px auto;
+    color: #333; /* Darker text color */
+}
+
+/* Styling for Attraction Cards */
+.AttractionCard {
+    display: flex;
+    align-items: center;
+    background-color: #FFF8DC; /* Light beige background */
+    border: 1px solid #E0E0E0; /* Subtle border */
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.AttractionImage {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    margin-right: 15px;
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.AttractionInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.AttractionInfo h2 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #333; /* Darker text */
+}
+
+.AttractionInfo p {
+    font-size: 1rem;
+    margin: 5px 0 0;
+    color: #555; /* Softer text color */
+}
+
+/* Historic Venue Section */
+.HistoricVenue {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.HistoricImage {
+    flex: 0 0 45%;
+    max-width: 45%;
+    height: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle drop shadow */
+    border-radius: 5px; /* Slightly rounded corners */
+}
+
+.HistoricText {
+    flex: 0 0 50%;
+    max-width: 50%;
+    text-align: left;
+}
+
+.HistoricText .button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #FFD700;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.HistoricText .button:hover {
+    background-color: #FFC107;
+}
+
+.HistoricContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Parallax Banner Section */
+.ParallaxBanner {
+    position: relative;
+    background-image: url('../imgs/img2.jpg'); /* Replace with desired image */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px; /* Not too tall */
+    width: 100%;
+    border: none; /* Remove the border */
+    border-radius: 10px; /* Keep rounded edges */
+}
+
+.ParallaxOverlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for text */
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.HistoricVenue + .ParallaxBanner {
+    margin-top: 20px; /* Ensure spacing between sections */
+}
+
+/* Rooms Section */
+.Rooms {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.RoomsContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    align-items: center;
+    gap: 20px;
+}
+
+.RoomsImage {
+    grid-column: 2; /* Place image in the second column */
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle drop shadow */
+    border-radius: 5px; /* Slightly rounded corners */
+}
+
+.RoomsText {
+    grid-column: 1; /* Place text in the first column */
+    text-align: left;
+}
+
+.RoomsText .button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #FFD700;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.RoomsText .button:hover {
+    background-color: #FFC107;
+}

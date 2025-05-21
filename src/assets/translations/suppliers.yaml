@@ -1,0 +1,16 @@
+suppliers:
+  - name: "Vita floral Events"
+    service: "In house florist"
+    logo: "src/assets/imgs/suppliers/vita.png"
+    highlighted: true
+  - name: "Brooklyn S Photography"
+    service: "In house photographer"
+    logo: "src/assets/imgs/suppliers/brooklyn.png"
+    highlighted: true
+    translations:
+      name: "Brooklyn S Photography"
+      service: "In house photographer"
+  - name: "In House Decor"
+    service: " "
+    logo: "src/assets/imgs/suppliers/decor.png"
+    highlighted: true

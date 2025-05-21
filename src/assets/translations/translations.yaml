@@ -1,0 +1,36 @@
+en:
+  tagline: "Book Your Stay Today"
+  welcome: "Welcome to Le Chateau"
+  description: "Experience the elegance and charm of Le Chateau, where luxury meets comfort. Our exquisite rooms and stunning surroundings make for an unforgettable stay."
+  explore: "Explore Rooms"
+  contact: "Contact"
+  weddings: "Weddings"
+  rooms: "Rooms"
+  attractions: "Attractions"
+  suppliers:
+    title: "Our Trusted Suppliers"
+    description: "We collaborate with the best suppliers to ensure your wedding day is perfect. From florists to caterers, explore our trusted partners below:"
+  footer:
+    rights: "All rights reserved."
+    address: "207 Rte de Toulouse, 47270 Saint-Jean-de-Thurac"
+    phone: "Phone: +33 6 844734 33"
+    email: "Email: chateaudecroquelardit@gmail.com"
+    instagram: "Instagram"
+fr:
+  tagline: "Réservez votre séjour aujourd'hui"
+  welcome: "Bienvenue au Château"
+  description: "Découvrez l'élégance et le charme du Château, où le luxe rencontre le confort. Nos chambres exquises et nos environs magnifiques rendent votre séjour inoubliable."
+  explore: "Explorer les chambres"
+  contact: "Contactez"
+  weddings: "Mariages"
+  rooms: "Chambres"
+  attractions: "Attractions"
+  suppliers:
+    title: "Nos fournisseurs de confiance"
+    description: "Nous collaborons avec les meilleurs fournisseurs pour garantir que votre journée de mariage soit parfaite. Des fleuristes aux traiteurs, découvrez nos partenaires de confiance ci-dessous :"
+  footer:
+    rights: "Tous droits réservés."
+    address: "207 Rte de Toulouse, 47270 Saint-Jean-de-Thurac"
+    phone: "Téléphone : +33 6 844734 33"
+    email: "Email : chateaudecroquelardit@gmail.com"
+    instagram: "Instagram"
